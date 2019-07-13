@@ -15,7 +15,7 @@
 %    nRedes         Numeber of networks
 %    dt             step for numerical integration
 %
-%    Saida 
+%    Output: 
 %    
 %    synchan        Struct with the  parameters for synaptic channels
 %
@@ -23,7 +23,7 @@
 %
 %  This function compute the parameters for synaptic channels [1]
 %
-% Autor: Ronaldo Nunes (ronaldovnunes@gmail.com)
+%  Autor: Ronaldo Nunes (ronaldovnunes@gmail.com)
 %
 %% References
 %
