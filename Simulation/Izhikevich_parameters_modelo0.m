@@ -33,8 +33,10 @@
 %   Autor: Ronaldo Nunes (ronaldovnunes@gmail.com)
 %% References
 %
-% [1] Izhikevich, Eugene M. "Simple model of spiking neurons." IEEE Transactions on neural networks 14.6 (2003): 1569-1572.
-% [2] Nunes, Ronaldo V., Marcelo B. Reyes, and Raphael Y. De Camargo. "Evaluation of connectivity estimates using spiking neuronal 
+% [1] Izhikevich, Eugene M. "Simple model of spiking neurons." IEEE Transactions 
+%     on neural networks 14.6 (2003): 1569-1572.
+% [2] Nunes, Ronaldo V., Marcelo B. Reyes, and Raphael Y. De Camargo. 
+%     "Evaluation of connectivity estimates using spiking neuronal 
 %     network models." Biological cybernetics 113.3 (2019): 309-320.
 
 function [N,Ne,Ni,pesos,qtd,D,inputExt,parameters]=Izhikevich_parameters_modelo0(qtd_ex,W_ex)    

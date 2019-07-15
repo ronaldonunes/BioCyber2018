@@ -27,7 +27,8 @@
 %
 %% References
 %
-%  [1] Koch, Christof, and Idan Segev, eds. Methods in neuronal modeling: from ions to networks. MIT press, 1998.
+%  [1] Koch, Christof, and Idan Segev, eds. Methods in neuronal modeling: 
+%      from ions to networks. MIT press, 1998.
 %
 
 function synchan = configureChannel (synchan, nNeurons, numRedes,dt)

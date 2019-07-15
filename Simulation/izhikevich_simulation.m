@@ -23,15 +23,18 @@
 %
 %    Output:
 %
-%    v              Membrane potential for each neuron in each network (should be adjusted to output all the time series) 
-%    u              Recovery variable for each neuron in each network  (should be adjusted to output all the time series)
+%    v              Membrane potential for each neuron in each network 
+%                   (it should be adjusted to output all the time series) 
+%    u              Recovery variable for each neuron in each network  
+%                   (it should be adjusted to output all the time series)
 %    LFP            LFP signal
 %    firings        spike for each neuron (network, time, neuron)
 %
 %% Description
 %
-%   This function computes the membrane potential, recovery variable, and LFP by integrating the Izhikevich model [1].
-%   The output v and u are the values in the last time step. This code should be adjusted to output all the 
+%   This function computes the membrane potential, recovery variable, and 
+%   LFP by integrating the Izhikevich model [1]. The output v and u are the
+%   values in the last time step. This code should be adjusted to output all the 
 %   time series for v and u.  LFP is computed as the average of the current
 %   arriving at excitatory neurons [2].
 %  
@@ -42,8 +45,10 @@
 % Autor: Ronaldo Nunes (ronaldovnunes@gmail.com)
 %% References
 %
-% [1] Izhikevich, Eugene M. "Simple model of spiking neurons." IEEE Transactions on neural networks 14.6 (2003): 1569-1572.
-% [2] Mazzoni, Alberto, et al. "Computing the local field potential (LFP) from integrate-and-fire network models." 
+% [1] Izhikevich, Eugene M. "Simple model of spiking neurons." 
+%     IEEE Transactions on neural networks 14.6 (2003): 1569-1572.
+% [2] Mazzoni, Alberto, et al. "Computing the local field potential (LFP) 
+%     from integrate-and-fire network models." 
 %     PLoS computational biology 11.12 (2015): e1004584.
 %
 

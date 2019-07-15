@@ -1,16 +1,16 @@
-%% delay
+%% delay 
 % 
 %
 %  Generate a matrix (cells) with the delay for each synapse for each neuron.
 %  It also returns the post-synaptic neurons connected to each pre-synaptic neuron i.
 %
 %
-%% Syntax
+%% Syntax 
 %
 %   [atrasos,post] = delay(Ne,Ni,numRedes,D,delayMax,connections)
 %
 %
-%% Arguments
+%% Arguments 
 %
 %    Input: 
 %
@@ -33,13 +33,14 @@
 %   atrasos         number of synapses in each delay
 %   post            post-synaptic neurons for each pre-synaptic 
 %
-%% Description
+%% Description 
 %
 %
 %   This function returns the Matlab structure cells. The delays are in the
-%   first output, where rows correspond to neurons and columns, correspond to the delay values. Each cell is
-%   the number of synapses.  Post-synaptic neurons are the second output. In this case, each row
-%   corresponds to a neuron, the other two dimensions are the networks. In each cell, we have the index
+%   first output, where rows correspond to neurons and columns, correspond 
+%   to the delay values. Each cell is the number of synapses.  Post-synaptic 
+%   neurons are the second output. In this case, each row corresponds to a neuron, 
+%   the other two dimensions are the networks. In each cell, we have the index
 %   of presynaptic neurons.
 %
 %   The delays are integer random values inside an interval [Dmin,Dmax]
@@ -47,7 +48,8 @@
 %   In order to generate random values inside an interval we used, for example,
 %   round(DminEE+(DmaxEE-DminEE)*rand)
 %
-%   This function was adapted. The original script is in Izhikevich site (https://www.izhikevich.org/publications/index.htm)
+%   This function was adapted. The original script is in Izhikevich site 
+%      (https://www.izhikevich.org/publications/index.htm)
 %
 %   Autor: Ronaldo Nunes (ronaldovnunes@gmail.com)
 %

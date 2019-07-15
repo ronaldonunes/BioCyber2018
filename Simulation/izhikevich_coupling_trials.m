@@ -12,7 +12,8 @@
 %
 %    modelo        model of neuronal networks [1]
 %    qtd_ex        Number of long-range excitatory connections E->E 
-%    W_ex          Synpatic weights long-range excitatory connections E->E (input should be synaptic weight * 10^3)
+%    W_ex          Synpatic weights long-range excitatory connections E->E 
+%                  (input should be synaptic weight * 10^3)
 %    trial_ini     Number of the first trial
 %    trial_end     Number of the last trial (trial_end > trial_ini)
 %
@@ -28,7 +29,8 @@
 %   Autor: Ronaldo Nunes (ronaldovnunes@gmail.com)
 %% References
 %
-% [1] Nunes, Ronaldo V., Marcelo B. Reyes, and Raphael Y. De Camargo. "Evaluation of connectivity estimates using spiking neuronal 
+% [1] Nunes, Ronaldo V., Marcelo B. Reyes, and Raphael Y. De Camargo. 
+%     "Evaluation of connectivity estimates using spiking neuronal 
 %     network models." Biological cybernetics 113.3 (2019): 309-320.
 
 function valor=izhikevich_coupling_trials(modelo,qtd_ex,W_ex,trial_ini,trial_end)

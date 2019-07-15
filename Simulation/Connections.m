@@ -24,8 +24,8 @@
 %
 %% Description
 %
-%    This function generates a matrix of connections between neurons. Columns correspond to presynaptic
-%    neurons. Rows correspond to postsynaptic neurons.
+%    This function generates a matrix of connections between neurons. 
+%    Columns correspond to presynaptic neurons. Rows correspond to postsynaptic neurons.
 %  
 %    W(j,i) = connection from i to j 
 %

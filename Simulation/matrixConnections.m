@@ -23,7 +23,8 @@
 %
 %% Description
 %
-%   This function generates all connection matrices. In order to do that it calls the function that creates each matrix.
+%   This function generates all connection matrices. In order to do that it 
+%   calls the function that creates each matrix.
 %
 %   Autor: Ronaldo Nunes (ronaldovnunes@gmail.com)
 %
