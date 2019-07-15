@@ -2,10 +2,10 @@
 % 
 %
 %  Generate a matrix (cells) with the delay for each synapse for each neuron.
-%  It also returns the post-synaptics neurons connected to each pre-synaptic neuron i.
+%  It also returns the post-synaptic neurons connected to each pre-synaptic neuron i.
 %
 %
-%% Sintax
+%% Syntax
 %
 %   [atrasos,post] = delay(Ne,Ni,numRedes,D,delayMax,connections)
 %
@@ -36,11 +36,11 @@
 %% Description
 %
 %
-%   This function returns the matlab structure cells. The delays are in the first output
-%   where rows correspond to neurons, and columns correspond to the delay values. Each cell is
-%   the number of synpases.  Post-synaptic neurons are the second output. In this case, each row
-%   correspond to a neuron, other two dimension are the networks. In each cell we have the index
-%   of pre-synaptic neurons.
+%   This function returns the Matlab structure cells. The delays are in the
+%   first output, where rows correspond to neurons and columns, correspond to the delay values. Each cell is
+%   the number of synapses.  Post-synaptic neurons are the second output. In this case, each row
+%   corresponds to a neuron, the other two dimensions are the networks. In each cell, we have the index
+%   of presynaptic neurons.
 %
 %   The delays are integer random values inside an interval [Dmin,Dmax]
 %

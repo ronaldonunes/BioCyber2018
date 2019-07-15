@@ -2,7 +2,7 @@
 % 
 %  Generate poisson spike train
 %
-%% Sintax
+%% Syntax
 %
 %    spikes = poisson(timeStepS, spikesPerS, durationS, numTrains)
 %

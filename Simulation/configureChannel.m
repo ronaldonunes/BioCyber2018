@@ -2,7 +2,7 @@
 % 
 %  Configure the synaptic channels
 %
-%% Sintax
+%% Syntax
 %
 %  configureChannel (synchan, nNeurons, numRedes,dt)
 %
