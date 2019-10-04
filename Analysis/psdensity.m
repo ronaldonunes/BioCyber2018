@@ -33,7 +33,8 @@
 
 function [pxx,f]=psdensity(x,Fs,len,flg)
 
-[pxx_puro,f] = pmtm(x,'',2*len,Fs);
+% 4 is the default nw
+[pxx_puro,f] = pmtm(x,4,2*len,Fs);
 
 
     if flg==true

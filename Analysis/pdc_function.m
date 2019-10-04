@@ -31,7 +31,7 @@
 %
 %   PDC and GPDC have dimensions of  (# time-series, # time-series, #frequencies)
 %
-%   This code was adapted of the library eMVar [3]
+%   This code was adapted from the library eMVar [3]
 %
 %% References  
 %

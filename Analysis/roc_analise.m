@@ -18,6 +18,7 @@
 %   nsamps         number of bootstrap samples
 %   peso           synaptic weight of long-range connections
 %   qtd            number of connections for long-range connections
+%   snr            Signal-to-noise ratio in dB, snr= ''  -> no noise
 %
 %   Output: 
 %
@@ -32,10 +33,10 @@
 %   Autor: Ronaldo  Nunes (ronaldovnunes@gmail.com)
 %
 %
-function valor=roc_analise(modelo,nfreq,nChannels,ntrialGrupo,ntrialTotal,nsamps,peso,qtd)
+function valor=roc_analise(modelo,nfreq,nChannels,ntrialGrupo,ntrialTotal,nsamps,peso,qtd,snr)
 
 % Path to save data
-path=strcat('/home/ronaldo/Novos_Dados/LFP/Modelo_',num2str(modelo),'/');
+path=strcat('/home/Modelo_',num2str(modelo),'/');
 
 
 % Model
@@ -76,11 +77,19 @@ roc(1,:)=alpha_range;
 for trial_ini=1:ntrialGrupo:ntrialTotal
 
    
-   displaey(trial_ini)		
+   display(trial_ini)		
 
     % grupo de trials
     trial=trial_ini+(ntrialGrupo-1);                
-    load(strcat(path,'gpdc_',num2str(nsamps),'samples_',num2str(trial_ini),'trial_inicial_',num2str(trial),'trial_final_',num2str(peso),'peso_',num2str(qtd),'qtd_','modelo',num2str(modelo),num2str(snr),'SNR','.mat'));
+    
+     if ~isempty(snr)
+        load(strcat(path,'gpdc_',num2str(nsamps),'samples_',num2str(trial_ini),'trial_inicial_',num2str(trial),'trial_final_',...
+            num2str(peso),'peso_',num2str(qtd),'qtd_',num2str(modelo),'modelo_',num2str(snr),'SNR','.mat'));
+    else    
+        load(strcat(path,'gpdc_',num2str(nsamps),'samples_',num2str(trial_ini),'trial_inicial_',num2str(trial),'trial_final_',...
+            num2str(peso),'peso_',num2str(qtd),'qtd_',num2str(modelo),'modelo','.mat'));
+    end
+    
  
     %% ROC Curve
 
@@ -144,8 +153,14 @@ end
 
 
 
+ if ~isempty(snr)
+        save(strcat(path,'roc_',num2str(nsamps),'samples_',num2str(ntrialGrupo),'trialsGrupo_',num2str(ntrialTotal),'trialsTotal_',num2str(peso),...
+            'peso_',num2str(qtd),'qtd_',num2str(modelo),'modelo_',num2str(nChannels),'nChannels_',num2str(nfreq),'nfreq_',num2str(snr),'SNR.mat'),'roc');
+ else    
+        save(strcat(path,'roc_',num2str(nsamps),'samples_',num2str(ntrialGrupo),'trialsGrupo_',num2str(ntrialTotal),'trialsTotal_',num2str(peso),...
+            'peso_',num2str(qtd),'qtd_',num2str(modelo),'modelo_',num2str(nChannels),'nChannels_',num2str(nfreq),'nfreq.mat'),'roc');
+ end
 
-save(strcat(path,'roc_',num2str(nsamps),'samples_',num2str(ntrialGrupo),'trialsGrupo_',num2str(ntrialTotal),'trialsTotal_',num2str(peso),'peso_',num2str(qtd),'qtd_',num2str(modelo),'modelo_',num2str(nChannels),'nChannels_',num2str(nfreq),'nfreq',num2str(snr),'SNR','.mat'),'roc');
   
 valor=1;
 end

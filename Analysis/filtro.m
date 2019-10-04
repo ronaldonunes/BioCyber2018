@@ -21,7 +21,7 @@
 %% Descricao
 %
 %  This function filter LFP signals using a low-pass filter.
-%  The filter is butterworth with order 6
+%  The filter is a butterworth with order 6
 % 
 %
 % Autor: Ronaldo Nunes (ronaldovnunes@gmail.com)

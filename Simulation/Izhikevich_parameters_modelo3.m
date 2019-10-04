@@ -38,6 +38,7 @@
 %     network models." Biological cybernetics 113.3 (2019): 309-320.
 
 function [N,Ne,Ni,pesos,qtd,D,inputExt,parameters]=Izhikevich_parameters_modelo3(qtd_ex,W_ex)     
+   
     %% General parameters
     parameters.numRedes=5; % number of networks 
     parameters.T=2*10^5; % Steps (Time in ms=T*dt)  

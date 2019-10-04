@@ -68,18 +68,18 @@ atrasos = cell(max(N.Rede(:)),delayMax,numRedes,numRedes);
 post=cell(max(N.Rede(:)),numRedes,numRedes);
 
 % Fill post with the postsynaptic neurons
-for rede=1:numRedes;
-    for rede2=1:numRedes;
-        for i=1:N.Rede(rede);
+for rede=1:numRedes
+    for rede2=1:numRedes
+        for i=1:N.Rede(rede)
             post{i,rede2,rede}=find(connections.W(rede2,rede).matriz(:,i)~=0)';
-        end;
-    end;
-end;
+        end
+    end
+end
 
 
 % Delays
-for rede=1:numRedes;
-    for rede2=1:numRedes;
+for rede=1:numRedes
+    for rede2=1:numRedes
                 
         % maximum and minimum delay for each synapse type
         delayMaxEE=D.Rede(rede2,rede).Dmax.EE;
@@ -91,29 +91,29 @@ for rede=1:numRedes;
         delayMaxII=D.Rede(rede2,rede).Dmax.II;
         delayMinII=D.Rede(rede2,rede).Dmin.II;
         
-        for i=1:Ne.Rede(rede);
+        for i=1:Ne.Rede(rede)
            % number of synapses for neuron i
            snp=size(post{i,rede2,rede},2);
                      
-           for j=1:snp;
+           for j=1:snp
                 if(post{i,rede2,rede}(j)<=Ne.Rede(rede2)) % delay for synapses E-E
                     atrasos{i, round(delayMinEE+(delayMaxEE-delayMinEE)*rand),rede2,rede}(end+1) = j;
                 else % delay for synapses E-I
                     atrasos{i, round(delayMinEI+(delayMaxEI-delayMinEI)*rand),rede2,rede}(end+1) = j;
                 end
-            end;
-        end;
+           end
+        end
         
-        for i=Ne.Rede(rede)+1:N.Rede(rede);
+        for i=Ne.Rede(rede)+1:N.Rede(rede)
            % number of synapses for neuron i
            snp=size(post{i,rede2,rede},2);
-            for k=1:snp;   
+            for k=1:snp   
                 if(post{i,rede2,rede}(k)<=Ne.Rede(rede2)) % delay for synapses I-E
                     atrasos{i, round(delayMinIE+(delayMaxIE-delayMinIE)*rand),rede2,rede}(end+1) = k;
                 else % delay for synapses I-I
                     atrasos{i, round(delayMinII+(delayMaxII-delayMinII)*rand),rede2,rede}(end+1) = k;
                 end    
-            end;
-        end;
-    end;
-end;
+            end
+        end
+    end
+end

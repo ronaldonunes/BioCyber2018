@@ -1,6 +1,6 @@
 %% writeFile
 % 
-%  Generates a text ile with the parameters
+%  Generates a text file with the parameters
 %
 %% Syntax
 %

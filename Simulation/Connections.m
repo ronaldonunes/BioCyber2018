@@ -31,10 +31,10 @@
 %
 %    Synaptic weights "pesos" is a matlab struct 
 %
-%    Each neuron receives a fixed quantity of synapses giver by qtd
+%    Each neuron receives a fixed quantity of synapses given by qtd
 %
 %
-%    Autor: Ronaldo Nunes (ronaldovnunes@gmail.com
+%    Autor: Ronaldo Nunes (ronaldovnunes@gmail.com)
 %
 
 function  W = Connections(neReceiver,niReceiver,neSender,niSender,pesos,qtd,diagonal)
@@ -44,25 +44,25 @@ numNeuronsReceiver=neReceiver+niReceiver;
 numNeuronsSender=neSender+niSender;
 
 if (numNeuronsReceiver~=numNeuronsSender) && diagonal ~=0
-    error('A matriz nao e quadrada')
+    error('Matrix is not square')
 end
 
 % Check if pesos and qtd are different from zero.
 if(nnz(structfun(@(x) (any(x)), pesos))~=0 && nnz(structfun(@(x) (any(x)), qtd)~=0))
 
-    if pesos.EE==0;
+    if pesos.EE==0
          qtdValuesEE=0;
          diagonalValuesEE=0;
     else
-        if diagonal==1;
-            if qtd.EE==0; 
+        if diagonal==1
+            if qtd.EE==0 
                  qtdValuesEE=neSender-1;
             else
                  qtdValuesEE=neSender-1-qtd.EE;
             end
             diagonalValuesEE=0; % diagonal values
         else
-            if qtd.EE==0;
+            if qtd.EE==0
                  qtdValuesEE=neSender;
             else
                  qtdValuesEE=neSender-qtd.EE;
@@ -72,19 +72,19 @@ if(nnz(structfun(@(x) (any(x)), pesos))~=0 && nnz(structfun(@(x) (any(x)), qtd)~
     end
 
 
-    if pesos.II==0;
+    if pesos.II==0
         qtdValuesII=0;
         diagonalValuesII=0;
       else
-        if diagonal==1;
-            if qtd.II==0; 
+        if diagonal==1
+            if qtd.II==0 
                  qtdValuesII=niSender-1;
             else
                  qtdValuesII=niSender-1-qtd.II;
             end
             diagonalValuesII=0; % diagonal values
         else
-            if qtd.II==0;
+            if qtd.II==0
                  qtdValuesII=niSender;
             else
                  qtdValuesII=niSender-qtd.II;
@@ -93,20 +93,20 @@ if(nnz(structfun(@(x) (any(x)), pesos))~=0 && nnz(structfun(@(x) (any(x)), qtd)~
         end  
     end
 
-    if pesos.EI==0;
+    if pesos.EI==0
         qtdValuesEI=0;
     else
-        if qtd.EI==0; 
+        if qtd.EI==0 
             qtdValuesEI=neSender;
         else
             qtdValuesEI=neSender-qtd.EI;
         end
     end
 
-    if pesos.IE==0;
+    if pesos.IE==0
         qtdValuesIE=0;
     else
-        if qtd.IE==0; 
+        if qtd.IE==0 
            qtdValuesIE=niSender;
         else
            qtdValuesIE=niSender-qtd.IE;

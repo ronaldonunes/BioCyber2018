@@ -65,4 +65,4 @@ function synchan = configureChannel (synchan, nNeurons, numRedes,dt)
   synchan.Y2=repmat(synchan.Y2,nNeurons,1);
   synchan.norm=repmat(synchan.norm,nNeurons,1);
 end
-%----------------------------------------------------------------
+

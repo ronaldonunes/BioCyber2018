@@ -12,9 +12,13 @@
 %   
 %   modelo         Number of the model according to the paper (it is used just to
 %                  save data in different folders for different models)
-%   ntrialIni      number of the first trial used in the code
-%   ntrialGrupo    number of trials in each group
-%   ntrialTotal    number total of trials that will be divided in groups
+%   ntrialIni      Number of the first trial used in the code
+%   ntrialGrupo    Number of trials in each group
+%   ntrialTotal    Total number of trials that will be divided in groups
+%   nsamps         Number of bootstrap samples
+%   peso           Synaptic Weight * 10^3
+%   qtd            Number of connections
+%   snr            Signal-to-noise ratio in dB, snr= ''  -> no noise
 %
 %   Output: 
 %
@@ -29,11 +33,11 @@
 % Autor: Ronaldo  Nunes (ronaldovnunes@gmail.com)
 
 
-function valor=pdc_save_averages(modelo,ntrialIni,ntrialGrupo,ntrialTotal,nsamps,peso,qtd)
+function valor=pdc_save_averages(modelo,ntrialIni,ntrialGrupo,ntrialTotal,nsamps,peso,qtd,snr)
 
 % Path to save data
 % Folders should be created before run the code 
-path=strcat('/home/ronaldo/Novos_Dados/LFP/Modelo_',num2str(modelo),'/');
+path=strcat('/home/Modelo_',num2str(modelo),'/');
   
 nfreq=25;  % Number of frequencies
 fs_old=2*10^4; % Original LFP sampling Rate 
@@ -68,8 +72,14 @@ nChannels=5;   % number of time series in each group
 
         load(strcat(path,name,'.mat'),'LFP_current')
         LFP=LFP_current;
+        % 100000 = transient
         dadosLFP=setLFP(LFP(100000:end,:),fs_old,fs_new); % last 5 seconds in time series
 
+        if ~isempty(snr)
+            dadosLFP=awgn(dadosLFP,snr,'measured','db');
+        end
+        
+        
         % Compute GPDC Bootstrap
         parameters=bootstrap_tsdata_to_pdc(dadosLFP',momax,nsamps,nfreq,fs_new);
 
@@ -101,10 +111,16 @@ nChannels=5;   % number of time series in each group
     
     media.freq=parameters.freq;
 
-    save(strcat(path,'gpdc_',num2str(nsamps),'samples_',num2str(trial_ini),'trial_inicial_',num2str(trial),'trial_final_',num2str(peso),'peso_',num2str(qtd),'qtd_','modelo',num2str(modelo),'.mat'),'media','desvio');
-   
+    if ~isempty(snr)
+        save(strcat(path,'gpdc_',num2str(nsamps),'samples_',num2str(trial_ini),'trial_inicial_',num2str(trial),'trial_final_',...
+            num2str(peso),'peso_',num2str(qtd),'qtd_',num2str(modelo),'modelo_',num2str(snr),'SNR','.mat'),'media','desvio');
+    else    
+        save(strcat(path,'gpdc_',num2str(nsamps),'samples_',num2str(trial_ini),'trial_inicial_',num2str(trial),'trial_final_',...
+            num2str(peso),'peso_',num2str(qtd),'qtd_',num2str(modelo),'modelo','.mat'),'media','desvio');
     end
-valor=1;
+    
+    end
+    valor=1;
 
 end
 

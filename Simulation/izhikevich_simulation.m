@@ -19,7 +19,7 @@
 %    qtd            Struct with the number of connections
 %    D              Struct with delays   
 %    inputExt       External input
-%    parameters    Struct with network parameters
+%    p              Struct with network parameters
 %
 %    Output:
 %
