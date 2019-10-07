@@ -8,7 +8,7 @@ The model simulates 5 spiking neuronal networks where the weights and number of 
 
 ## Analysis 
 
-It was analyzed the [GPDC](https://ieeexplore.ieee.org/document/4288544) between LFP signals generated for each spiking neuronal network. Besides that, it was verified the ROC curves to evaluate the relation between inference of effective connectivity and synaptic weight and noise. Finally, it was analyzed the relation between the peak of GPDC and coupling.
+It was analyzed the [GPDC](https://ieeexplore.ieee.org/document/4288544) between LFP signals generated for each spiking neuronal network. Besides that, it was verified the ROC curves to evaluate the relation between inference of effective connectivity and synaptic weight or noise. Finally, it was analyzed the relation between the peak of GPDC and coupling.
 
 ## Plot
 
@@ -18,9 +18,6 @@ The codes in this folder were used to create the paper figures. It is important 
 
 The analysis requires the mvar code from toolbox [AsymPDC](http://www.lcs.poli.usp.br/~baccala/pdc/). For some functions in plot folder, it is important to download the package [bondedline](https://github.com/kakearney/boundedline-pkg). 
 
-## DataSet
-
-The dataset used in the paper is avaliable in [Zenodo]()
 
 ## Key references
 
